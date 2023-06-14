@@ -10,65 +10,111 @@ public:
     CLASS_DD(GpLine2d)
 
 public:
-    constexpr inline                    GpLine2d    (void) noexcept;
-    constexpr inline                    GpLine2d    (const GpLine2d& aLine) noexcept;
-    constexpr inline                    GpLine2d    (GpLine2d&& aLine) noexcept;
-    constexpr inline                    GpLine2d    (const GpPoint2d&   aStart,
-                                                     const GpPoint2d&   aEnd) noexcept;
-    constexpr inline                    GpLine2d    (const double       aStartX,
-                                                     const double       aStartY,
-                                                     const double       aEndX,
-                                                     const double       aEndY) noexcept;
-    constexpr                           ~GpLine2d   (void) noexcept = default;
+    constexpr inline                    GpLine2d        (void) noexcept;
+    constexpr inline                    GpLine2d        (const GpLine2d& aLine) noexcept;
+    constexpr inline                    GpLine2d        (GpLine2d&& aLine) noexcept;
+    constexpr inline                    GpLine2d        (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd) noexcept;
+    constexpr inline                    GpLine2d        (const double       aStartX,
+                                                         const double       aStartY,
+                                                         const double       aEndX,
+                                                         const double       aEndY) noexcept;
+#if  (__cplusplus >= CPP_VERSION_20)
+    constexpr                           ~GpLine2d       (void) noexcept = default;
+#else
+                                        ~GpLine2d       (void) noexcept = default;
+#endif//#if  (__cplusplus >= CPP_VERSION_20)
 
-    constexpr inline void               Reset       (void) noexcept;
+    constexpr inline void               Reset           (void) noexcept;
 
-    constexpr inline GpLine2d&          operator=   (const GpLine2d& aLine) noexcept;
-    constexpr inline GpLine2d&          operator=   (GpLine2d&& aLine) noexcept;
-    [[nodiscard]] constexpr inline bool operator==  (const GpLine2d& aLine) const noexcept;
+    constexpr inline GpLine2d&          operator=       (const GpLine2d& aLine) noexcept;
+    constexpr inline GpLine2d&          operator=       (GpLine2d&& aLine) noexcept;
+    [[nodiscard]] constexpr inline bool operator==      (const GpLine2d& aLine) const noexcept;
 
-    constexpr const GpPoint2d&          Start       (void) const noexcept {return iStart;}
-    constexpr GpPoint2d&                Start       (void) noexcept {return iStart;}
-    constexpr const GpPoint2d&          End         (void) const noexcept {return iEnd;}
-    constexpr GpPoint2d&                End         (void) noexcept {return iEnd;}
+    constexpr const GpPoint2d&          Start           (void) const noexcept {return iStart;}
+    constexpr GpPoint2d&                Start           (void) noexcept {return iStart;}
+    constexpr const GpPoint2d&          End             (void) const noexcept {return iEnd;}
+    constexpr GpPoint2d&                End             (void) noexcept {return iEnd;}
 
-    constexpr inline GpLine2d&          SetStart    (const GpPoint2d& aStart) noexcept;
-    constexpr inline GpLine2d&          SetEnd      (const GpPoint2d& aEnd) noexcept;
-    constexpr inline GpLine2d&          Set         (const GpPoint2d& aStart,
-                                                     const GpPoint2d& aEnd) noexcept;
-    constexpr inline GpLine2d&          Set         (const GpLine2d& aLine) noexcept;
-    constexpr inline GpLine2d&          Sub         (const GpPoint2d& aA,
-                                                     const GpPoint2d& aB) noexcept;
-    constexpr inline GpLine2d&          Sub         (const double aAX,
-                                                     const double aAY,
-                                                     const double aBX,
-                                                     const double aBY) noexcept;
-    constexpr inline GpLine2d&          Mul         (const double aValue) noexcept;
-    [[nodiscard]] constexpr inline bool TrimMinX    (const double aValue) noexcept;
-    [[nodiscard]] constexpr inline bool TrimMaxX    (const double aValue) noexcept;
-    [[nodiscard]] constexpr inline bool TrimMinY    (const double aValue) noexcept;
-    [[nodiscard]] constexpr inline bool TrimMaxY    (const double aValue) noexcept;
+    constexpr inline GpLine2d&          SetStart        (const GpPoint2d& aStart) noexcept;
+    constexpr inline GpLine2d&          SetEnd          (const GpPoint2d& aEnd) noexcept;
+    constexpr inline GpLine2d&          Set             (const GpPoint2d& aStart,
+                                                         const GpPoint2d& aEnd) noexcept;
+    constexpr inline GpLine2d&          Set             (const GpLine2d& aLine) noexcept;
+    constexpr inline GpLine2d&          Sub             (const GpPoint2d& aA,
+                                                         const GpPoint2d& aB) noexcept;
+    constexpr inline GpLine2d&          Sub             (const double aAX,
+                                                         const double aAY,
+                                                         const double aBX,
+                                                         const double aBY) noexcept;
+    constexpr inline GpLine2d&          Mul             (const double aValue) noexcept;
 
-    constexpr static std::optional<GpPoint2d>
-                                    SIntersect  (const GpLine2d& aLineA,
-                                                 const GpLine2d& aLineB) noexcept;
-    constexpr static std::optional<GpPoint2d>
-                                    SIntersect  (const double aLineA_StartX,
-                                                 const double aLineA_StartY,
-                                                 const double aLineA_EndX,
-                                                 const double aLineA_EndY,
-                                                 const double aLineB_StartX,
-                                                 const double aLineB_StartY,
-                                                 const double aLineB_EndX,
-                                                 const double aLineB_EndY) noexcept;
+    static constexpr inline GeometryTypes::IntersectLine2dResT
+                                        SIntersectMinX  (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd,
+                                                         const double       aValue) noexcept;
+    static constexpr inline GeometryTypes::IntersectLine2dResT
+                                        SIntersectMaxX  (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd,
+                                                         const double       aValue) noexcept;
+    static constexpr inline GeometryTypes::IntersectLine2dResT
+                                        SIntersectMinY  (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd,
+                                                         const double       aValue) noexcept;
+    static constexpr inline GeometryTypes::IntersectLine2dResT
+                                        SIntersectMaxY  (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd,
+                                                         const double       aValue) noexcept;
 
-    constexpr static GpPoint2d      SMiddle     (const GpLine2d& aLine) noexcept;
-    constexpr static GpPoint2d      SMiddle     (const GpPoint2d& aA,
-                                                 const GpPoint2d& aB) noexcept;
+    static constexpr inline GeometryTypes::TrimLine2dResT
+                                        STrimMinX       (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd,
+                                                         const double       aValue) noexcept;
+    static constexpr inline GeometryTypes::TrimLine2dResT
+                                        STrimMaxX       (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd,
+                                                         const double       aValue) noexcept;
+    static constexpr inline GeometryTypes::TrimLine2dResT
+                                        STrimMinY       (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd,
+                                                         const double       aValue) noexcept;
+    static constexpr inline GeometryTypes::TrimLine2dResT
+                                        STrimMaxY       (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd,
+                                                         const double       aValue) noexcept;
+    static constexpr inline GeometryTypes::TrimLine2dResT
+                                        STrim           (const GpPoint2d&   aStart,
+                                                         const GpPoint2d&   aEnd,
+                                                         const double       aMinX,
+                                                         const double       aMinY,
+                                                         const double       aMaxX,
+                                                         const double       aMaxY) noexcept;
+
+    static constexpr inline GeometryTypes::TrimLine2dResT
+                                        SIntersectToTrim(const GpPoint2d&                           aStart,
+                                                         const GpPoint2d&                           aEnd,
+                                                         const GeometryTypes::IntersectLine2dResT&  aIntersectRes);
+
+    static constexpr GeometryTypes::Point2dOptT
+                                        SIntersect      (const GpLine2d& aLineA,
+                                                         const GpLine2d& aLineB) noexcept;
+    static constexpr GeometryTypes::Point2dOptT
+                                        SIntersect      (const double aLineA_StartX,
+                                                         const double aLineA_StartY,
+                                                         const double aLineA_EndX,
+                                                         const double aLineA_EndY,
+                                                         const double aLineB_StartX,
+                                                         const double aLineB_StartY,
+                                                         const double aLineB_EndX,
+                                                         const double aLineB_EndY) noexcept;
+
+    static constexpr GpPoint2d          SMiddle         (const GpLine2d& aLine) noexcept;
+    static constexpr GpPoint2d          SMiddle         (const GpPoint2d& aA,
+                                                         const GpPoint2d& aB) noexcept;
 
 private:
-    GpPoint2d                       iStart;
-    GpPoint2d                       iEnd;
+    GpPoint2d                           iStart;
+    GpPoint2d                           iEnd;
 };
 
 constexpr GpLine2d::GpLine2d (void) noexcept
@@ -202,231 +248,460 @@ constexpr GpLine2d& GpLine2d::Mul (const double aValue) noexcept
     return *this;
 }
 
-constexpr bool  GpLine2d::TrimMinX (const double aValue) noexcept
+constexpr GeometryTypes::IntersectLine2dResT    GpLine2d::SIntersectMinX
+(
+    const GpPoint2d&    aStart,
+    const GpPoint2d&    aEnd,
+    const double        aValue
+) noexcept
 {
-    const double trimStart  = iStart.X() - aValue;
-    const double trimEnd    = iEnd.X() - aValue;
-    const double otherStart = iStart.Y();
-    const double otherEnd   = iEnd.Y();
+    const double startK     = aStart.X() - aValue;
+    const double endK       = aEnd.X() - aValue;
+    const double otherStart = aStart.Y();
+    const double otherEnd   = aEnd.Y();
 
-    if (trimStart > 0.0)
+    if (startK > 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK < 0.0)
         {
-            return true;
-        } else if (trimEnd < 0.0)
-        {
-            const double k = std::fabs(trimStart / (trimEnd - trimStart));
+            const double k = NumOps::SAbs(startK / (endK - startK));
 
-            iEnd.SetY(otherStart + (otherEnd - otherStart)*k);
-            iEnd.SetX(aValue);
-
-            return true;
-        } else//(trimEnd == 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_OUTSIDE,
+                GpPoint2d
+                (
+                    aValue,
+                    otherStart + (otherEnd - otherStart)*k
+                )
+            };
+        } else
         {
-            return true;
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_INSIDE,
+                GpPoint2d()
+            };
         }
-    } else if (trimStart < 0.0)
+    } else if (startK < 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK > 0.0)
         {
-            const double k = std::fabs(trimEnd / (trimStart - trimEnd));
+            const double k = NumOps::SAbs(endK / (startK - endK));
 
-            iStart.SetY(otherEnd + (otherStart - otherEnd)*k);
-            iStart.SetX(aValue);
-
-            return true;
-        } else if (trimEnd < 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::B_INSIDE_A_OUTSIDE,
+                GpPoint2d
+                (
+                    aValue,
+                    otherEnd + (otherStart - otherEnd)*k
+                )
+            };
+        } else
         {
-            return false;
-        } else//(trimEnd == 0.0)
-        {
-            return false;
+            return
+            {
+                GeometryTypes::IntersectState::NOT_INTERSECTED,
+                GpPoint2d()
+            };
         }
-    } else//(trimStart == 0.0)
+    } else//(startK == 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK < 0.0)
         {
-            return true;
-        } else if (trimEnd < 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::NOT_INTERSECTED,
+                GpPoint2d()
+            };
+        } else
         {
-            return false;
-        } else//(trimEnd == 0.0)
-        {
-            return true;
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_INSIDE,
+                GpPoint2d()
+            };
         }
     }
 }
 
-constexpr bool  GpLine2d::TrimMaxX (const double aValue) noexcept
+constexpr GeometryTypes::IntersectLine2dResT    GpLine2d::SIntersectMaxX
+(
+    const GpPoint2d&    aStart,
+    const GpPoint2d&    aEnd,
+    const double        aValue
+) noexcept
 {
-    const double trimStart  = iStart.X() - aValue;
-    const double trimEnd    = iEnd.X() - aValue;
-    const double otherStart = iStart.Y();
-    const double otherEnd   = iEnd.Y();
+    const double startK     = aStart.X() - aValue;
+    const double endK       = aEnd.X() - aValue;
+    const double otherStart = aStart.Y();
+    const double otherEnd   = aEnd.Y();
 
-    if (trimStart > 0.0)
+    if (startK > 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK < 0.0)
         {
-            return false;
-        } else if (trimEnd < 0.0)
-        {
-            const double k = std::fabs(trimEnd / (trimStart - trimEnd));
+            const double k = NumOps::SAbs(endK / (startK - endK));
 
-            iStart.SetY(otherEnd + (otherStart - otherEnd)*k);
-            iStart.SetX(aValue);
-
-            return true;
-        } else//(trimEnd == 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::B_INSIDE_A_OUTSIDE,
+                GpPoint2d
+                (
+                    aValue,
+                    otherEnd + (otherStart - otherEnd)*k
+                )
+            };
+        } else
         {
-            return false;
+            return
+            {
+                GeometryTypes::IntersectState::NOT_INTERSECTED,
+                GpPoint2d()
+            };
         }
-    } else if (trimStart < 0.0)
+    } else if (startK < 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK > 0.0)
         {
-            const double k = std::fabs(trimStart / (trimEnd - trimStart));
+            const double k = NumOps::SAbs(startK / (endK - startK));
 
-            iEnd.SetY(otherStart + (otherEnd - otherStart)*k);
-            iEnd.SetX(aValue);
-
-            return true;
-        } else if (trimEnd < 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_OUTSIDE,
+                GpPoint2d
+                (
+                    aValue,
+                    otherStart + (otherEnd - otherStart)*k
+                )
+            };
+        } else
         {
-            return true;
-        } else//(trimEnd == 0.0)
-        {
-            return true;
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_INSIDE,
+                GpPoint2d()
+            };
         }
-    } else//(trimStart == 0.0)
+    } else//(startK == 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK > 0.0)
         {
-            return false;
-        } else if (trimEnd < 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::NOT_INTERSECTED,
+                GpPoint2d()
+            };
+        } else
         {
-            return true;
-        } else//(trimEnd == 0.0)
-        {
-            return true;
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_INSIDE,
+                GpPoint2d()
+            };
         }
     }
 }
 
-constexpr bool  GpLine2d::TrimMinY (const double aValue) noexcept
+constexpr GeometryTypes::IntersectLine2dResT    GpLine2d::SIntersectMinY
+(
+    const GpPoint2d&    aStart,
+    const GpPoint2d&    aEnd,
+    const double        aValue
+) noexcept
 {
-    const double trimStart  = iStart.Y() - aValue;
-    const double trimEnd    = iEnd.Y() - aValue;
-    const double otherStart = iStart.X();
-    const double otherEnd   = iEnd.X();
+    const double startK     = aStart.Y() - aValue;
+    const double endK       = aEnd.Y() - aValue;
+    const double otherStart = aStart.X();
+    const double otherEnd   = aEnd.X();
 
-    if (trimStart > 0.0)
+    if (startK > 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK < 0.0)
         {
-            return true;
-        } else if (trimEnd < 0.0)
-        {
-            const double k = std::fabs(trimStart / (trimEnd - trimStart));
+            const double k = NumOps::SAbs(startK / (endK - startK));
 
-            iEnd.SetX(otherStart + (otherEnd - otherStart)*k);
-            iEnd.SetY(aValue);
-
-            return true;
-        } else//(trimEnd == 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_OUTSIDE,
+                GpPoint2d
+                (
+                    otherStart + (otherEnd - otherStart)*k,
+                    aValue
+                )
+            };
+        } else
         {
-            return true;
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_INSIDE,
+                GpPoint2d()
+            };
         }
-    } else if (trimStart < 0.0)
+
+    } else if (startK < 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK > 0.0)
         {
-            const double k = std::fabs(trimEnd / (trimStart - trimEnd));
+            const double k = NumOps::SAbs(endK / (startK - endK));
 
-            iStart.SetX(otherEnd + (otherStart - otherEnd)*k);
-            iStart.SetY(aValue);
-
-            return true;
-        } else if (trimEnd < 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::B_INSIDE_A_OUTSIDE,
+                GpPoint2d
+                (
+                    otherEnd + (otherStart - otherEnd)*k,
+                    aValue
+                )
+            };
+        } else
         {
-            return false;
-        } else//(trimEnd == 0.0)
-        {
-            return false;
+            return
+            {
+                GeometryTypes::IntersectState::NOT_INTERSECTED,
+                GpPoint2d()
+            };
         }
-    } else//(trimStart == 0.0)
+    } else//(startK == 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK < 0.0)
         {
-            return true;
-        } else if (trimEnd < 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::NOT_INTERSECTED,
+                GpPoint2d()
+            };
+        } else
         {
-            return false;
-        } else//(trimEnd == 0.0)
-        {
-            return true;
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_INSIDE,
+                GpPoint2d()
+            };
         }
     }
 }
 
-constexpr bool  GpLine2d::TrimMaxY (const double aValue) noexcept
+constexpr GeometryTypes::IntersectLine2dResT    GpLine2d::SIntersectMaxY
+(
+    const GpPoint2d&    aStart,
+    const GpPoint2d&    aEnd,
+    const double        aValue
+) noexcept
 {
-    const double trimStart  = iStart.Y() - aValue;
-    const double trimEnd    = iEnd.Y() - aValue;
-    const double otherStart = iStart.X();
-    const double otherEnd   = iEnd.X();
+    const double startK     = aStart.Y() - aValue;
+    const double endK       = aEnd.Y() - aValue;
+    const double otherStart = aStart.X();
+    const double otherEnd   = aEnd.X();
 
-    if (trimStart > 0.0)
+    if (startK > 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK < 0.0)
         {
-            return false;
-        } else if (trimEnd < 0.0)
-        {
-            const double k = std::fabs(trimEnd / (trimStart - trimEnd));
+            const double k = NumOps::SAbs(endK / (startK - endK));
 
-            iStart.SetX(otherEnd + (otherStart - otherEnd)*k);
-            iStart.SetY(aValue);
-
-            return true;
-        } else//(trimEnd == 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::B_INSIDE_A_OUTSIDE,
+                GpPoint2d
+                (
+                    otherEnd + (otherStart - otherEnd)*k,
+                    aValue
+                )
+            };
+        } else
         {
-            return false;
+            return
+            {
+                GeometryTypes::IntersectState::NOT_INTERSECTED,
+                GpPoint2d()
+            };
         }
-    } else if (trimStart < 0.0)
+    } else if (startK < 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK > 0.0)
         {
-            const double k = std::fabs(trimStart / (trimEnd - trimStart));
+            const double k = NumOps::SAbs(startK / (endK - startK));
 
-            iEnd.SetX(otherStart + (otherEnd - otherStart)*k);
-            iEnd.SetY(aValue);
-
-            return true;
-        } else if (trimEnd < 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_OUTSIDE,
+                GpPoint2d
+                (
+                    otherStart + (otherEnd - otherStart)*k,
+                    aValue
+                )
+            };
+        } else
         {
-            return true;
-        } else//(trimEnd == 0.0)
-        {
-            return true;
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_INSIDE,
+                GpPoint2d()
+            };
         }
-    } else//(trimStart == 0.0)
+    } else//(startK == 0.0)
     {
-        if (trimEnd > 0.0)
+        if (endK > 0.0)
         {
-            return false;
-        } else if (trimEnd < 0.0)
+            return
+            {
+                GeometryTypes::IntersectState::NOT_INTERSECTED,
+                GpPoint2d()
+            };
+        } else
         {
-            return true;
-        } else//(trimEnd == 0.0)
-        {
-            return true;
+            return
+            {
+                GeometryTypes::IntersectState::A_INSIDE_B_INSIDE,
+                GpPoint2d()
+            };
         }
     }
 }
 
-constexpr std::optional<GpPoint2d>  GpLine2d::SIntersect
+constexpr GeometryTypes::TrimLine2dResT GpLine2d::STrimMinX
+(
+    const GpPoint2d&    aStart,
+    const GpPoint2d&    aEnd,
+    const double        aValue
+) noexcept
+{
+    const GeometryTypes::IntersectLine2dResT intersectRes = SIntersectMinX
+    (
+        aStart,
+        aEnd,
+        aValue
+    );
+
+    return SIntersectToTrim(aStart, aEnd, intersectRes);
+}
+
+constexpr GeometryTypes::TrimLine2dResT GpLine2d::STrimMaxX
+(
+    const GpPoint2d&    aStart,
+    const GpPoint2d&    aEnd,
+    const double        aValue
+) noexcept
+{
+    const GeometryTypes::IntersectLine2dResT intersectRes = SIntersectMaxX
+    (
+        aStart,
+        aEnd,
+        aValue
+    );
+
+    return SIntersectToTrim(aStart, aEnd, intersectRes);
+}
+
+constexpr GeometryTypes::TrimLine2dResT GpLine2d::STrimMinY
+(
+    const GpPoint2d&    aStart,
+    const GpPoint2d&    aEnd,
+    const double        aValue
+) noexcept
+{
+    const GeometryTypes::IntersectLine2dResT intersectRes = SIntersectMinY
+    (
+        aStart,
+        aEnd,
+        aValue
+    );
+
+    return SIntersectToTrim(aStart, aEnd, intersectRes);
+}
+
+constexpr GeometryTypes::TrimLine2dResT GpLine2d::STrimMaxY
+(
+    const GpPoint2d&    aStart,
+    const GpPoint2d&    aEnd,
+    const double        aValue
+) noexcept
+{
+    const GeometryTypes::IntersectLine2dResT intersectRes = SIntersectMaxY
+    (
+        aStart,
+        aEnd,
+        aValue
+    );
+
+    return SIntersectToTrim(aStart, aEnd, intersectRes);
+}
+
+constexpr GeometryTypes::TrimLine2dResT GpLine2d::STrim
+(
+    const GpPoint2d&    aStart,
+    const GpPoint2d&    aEnd,
+    const double        aMinX,
+    const double        aMinY,
+    const double        aMaxX,
+    const double        aMaxY
+) noexcept
+{
+    GeometryTypes::TrimLine2dResT res = STrimMinX(aStart, aEnd, aMinX);
+
+    if (res.has_value() == false)
+    {
+        return res;
+    }
+
+    GpLine2d resLine = res.value();
+
+    res = STrimMinY(resLine.Start(), resLine.End(), aMinY);
+
+    if (res.has_value() == false)
+    {
+        return res;
+    }
+
+    resLine = res.value();
+
+    res = STrimMaxX(resLine.Start(), resLine.End(), aMaxX);
+
+    if (res.has_value() == false)
+    {
+        return res;
+    }
+
+    resLine = res.value();
+
+    res = STrimMaxY(resLine.Start(), resLine.End(), aMaxY);
+
+    return res;
+}
+
+constexpr GeometryTypes::TrimLine2dResT GpLine2d::SIntersectToTrim
+(
+    const GpPoint2d&                            aStart,
+    const GpPoint2d&                            aEnd,
+    const GeometryTypes::IntersectLine2dResT&   aIntersectRes
+)
+{
+    const GeometryTypes::IntersectState intersectState = std::get<0>(aIntersectRes);
+
+    switch (intersectState)
+    {
+        case GeometryTypes::IntersectState::A_INSIDE_B_OUTSIDE:
+        {
+            return GpLine2d(aStart, std::get<1>(aIntersectRes));
+        } break;
+        case GeometryTypes::IntersectState::B_INSIDE_A_OUTSIDE:
+        {
+            return GpLine2d(std::get<1>(aIntersectRes), aEnd);
+        } break;
+        case GeometryTypes::IntersectState::A_INSIDE_B_INSIDE:
+        {
+            return GpLine2d(aStart, aEnd);
+        } break;
+        case GeometryTypes::IntersectState::NOT_INTERSECTED:
+        {
+            return std::nullopt;
+        } break;
+    }
+}
+
+constexpr GeometryTypes::Point2dOptT    GpLine2d::SIntersect
 (
     const GpLine2d& aLineA,
     const GpLine2d& aLineB
@@ -450,7 +725,7 @@ constexpr std::optional<GpPoint2d>  GpLine2d::SIntersect
     );
 }
 
-constexpr std::optional<GpPoint2d>  GpLine2d::SIntersect
+constexpr GeometryTypes::Point2dOptT    GpLine2d::SIntersect
 (
     const double aLineA_StartX,
     const double aLineA_StartY,

@@ -19,13 +19,20 @@ os_linux{
 }
 #------------------------------- LIBS END ----------------------------------
 
-SOURCES +=
+SOURCES += \
+	Algorithms/GpGeometryIntersectAlgo2d.cpp
 
 HEADERS += \
+    Algorithms/GpGeometryAlgo2d.hpp \
+    Algorithms/GpGeometryAlgorithms.hpp \
+	Algorithms/GpGeometryIntersectAlgo2d.hpp \
+    Algorithms/GpGeometrySpartialAlgo.hpp \
     GpAabb2d.hpp \
     GpGeometryCore.hpp \
     GpGeometryCore_global.hpp \
     GpLine2d.hpp \
     GpPoint2d.hpp \
     Utils/GpGeometryPrecision.hpp \
-    Utils/GpGeometryUtils.hpp
+	Utils/GpGeometryTypes.hpp \
+	Utils/GpGeometryUtils.hpp \
+	GpPolyline2d.hpp
