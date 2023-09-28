@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../GpLine2d.hpp"
+#include "../../../GpCore2/GpUtils/Types/Units/SI/GpUnitsSI_Angle.hpp"
 
 namespace GPlatform {
 

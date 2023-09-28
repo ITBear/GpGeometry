@@ -2,6 +2,7 @@
 
 #include "Utils/GpGeometryPrecision.hpp"
 #include "Utils/GpGeometryTypes.hpp"
+#include "../../GpCore2/GpUtils/Types/Containers/GpContainersT.hpp"
 
 namespace GPlatform {
 
