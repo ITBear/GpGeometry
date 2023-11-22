@@ -1,9 +1,10 @@
 #pragma once
 
-#include "Utils/GpGeometryUtils.hpp"
-#include "Algorithms/GpGeometryAlgorithms.hpp"
+#include "GpGeometryCore_global.hpp"
+#include "../../GpCore2/GpUtils/Other/GpLinkedLibsInfo.hpp"
 
-#include "GpPoint2d.hpp"
-#include "GpLine2d.hpp"
-#include "GpAabb2d.hpp"
-#include "GpPolyline2d.hpp"
+namespace GPlatform {
+
+GP_DECLARE_LIB(GP_GEOMETRY_CORE_API, GpGeometryCoreLib)
+
+}// namespace GPlatform
