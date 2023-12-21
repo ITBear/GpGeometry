@@ -1,7 +1,8 @@
 #pragma once
 
 #include "../GpGeometryCore_global.hpp"
-#include "../../../GpCore2/GpUtils/Macro/GpMacroClass.hpp"
+
+#include <GpCore2/GpUtils/Macro/GpMacroClass.hpp>
 
 namespace GPlatform {
 

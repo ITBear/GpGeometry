@@ -1,8 +1,9 @@
 #pragma once
 
 #include "../GpGeometryCore_global.hpp"
-#include "../../../GpCore2/GpUtils/Macro/GpMacroClass.hpp"
-#include "../../../GpCore2/GpUtils/Types/Numerics/GpNumericOps.hpp"
+
+#include <GpCore2/GpUtils/Macro/GpMacroClass.hpp>
+#include <GpCore2/GpUtils/Types/Numerics/GpNumericOps.hpp>
 
 #include <vector>
 #include <array>
