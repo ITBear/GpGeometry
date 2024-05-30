@@ -23,7 +23,7 @@ public:
     constexpr                           ~GpLine2d       (void) noexcept = default;
 #else
                                         ~GpLine2d       (void) noexcept = default;
-#endif//#if  (__cplusplus >= CPP_VERSION_20)
+#endif// #if  (__cplusplus >= CPP_VERSION_20)
 
     constexpr inline void               Reset           (void) noexcept;
 
@@ -699,6 +699,8 @@ constexpr GeometryTypes::TrimLine2dResT GpLine2d::SIntersectToTrim
             return std::nullopt;
         } break;
     }
+
+    return {};
 }
 
 constexpr GeometryTypes::Point2dOptT    GpLine2d::SIntersect
@@ -808,4 +810,4 @@ constexpr GpPoint2d GpLine2d::SMiddle
     return aA + dir;
 }
 
-}//namespace GPlatform
+}// namespace GPlatform

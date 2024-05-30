@@ -15,4 +15,4 @@ public:
     static constexpr double     SEqualDelta (void) noexcept {return 0.00000001;}
 };
 
-}//namespace GPlatform
+}// namespace GPlatform

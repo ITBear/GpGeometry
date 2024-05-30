@@ -40,7 +40,7 @@ public:
     constexpr                                       ~GpAabb2d           (void) noexcept = default;
 #else
                                                     ~GpAabb2d           (void) noexcept = default;
-#endif//#if  (__cplusplus >= CPP_VERSION_20)
+#endif// #if  (__cplusplus >= CPP_VERSION_20)
 
     constexpr inline static GpAabb2d                SFromCentralPoint   (const GpPoint2d&   aCenter,
                                                                          const double       aSizeX,
@@ -67,7 +67,7 @@ public:
     constexpr inline GpAabb2d&                      Set                 (const GpAabb2d& aAABB) noexcept;
 
     constexpr inline bool                           IsEqual             (const GpAabb2d& aAABB) const noexcept;
-    constexpr inline bool                           IsContain           (const GpPolyline2d& aPolyline) const noexcept;
+    inline bool                                     IsContain           (const GpPolyline2d& aPolyline) const noexcept;
     constexpr inline bool                           IsContain           (const GpPoint2d& aPoint) const noexcept;
     constexpr inline bool                           IsContain           (const double aX,
                                                                          const double aY) const noexcept;
@@ -265,10 +265,10 @@ constexpr bool  GpAabb2d::IsEqual (const GpAabb2d& aAABB) const noexcept
     return (iMin == aAABB.iMin) && (iMax == aAABB.iMax);
 }
 
-constexpr bool  GpAabb2d::IsContain (const GpPolyline2d& aPolyline) const noexcept
+bool    GpAabb2d::IsContain (const GpPolyline2d& aPolyline) const noexcept
 {
     const std::vector<GpPoint2d>&   points      = aPolyline.Points();
-    const size_t                    pointsCount = points.size();
+    const size_t                    pointsCount = std::size(points);
 
     for (size_t pointId = 0; pointId < pointsCount; pointId++)
     {
@@ -467,4 +467,4 @@ std::array<GpPoint2d, 4>    GpAabb2d::ToPoints (void) const noexcept
     };
 }
 
-}//namespace GPlatform
+}// namespace GPlatform

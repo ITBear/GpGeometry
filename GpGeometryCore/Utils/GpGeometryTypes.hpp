@@ -36,6 +36,6 @@ using TrimLine2dFnT         = std::function<TrimLine2dResT(const GpPoint2d& a, c
 //Sort function
 using SortLine2dFnT = std::function<bool(const GpPoint2d& a, const GpPoint2d& b)>;
 
-}//namespace GPlatform::GeometryTypes
+}// namespace GPlatform::GeometryTypes
 
-}//namespace GPlatform
+}// namespace GPlatform

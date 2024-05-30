@@ -88,4 +88,4 @@ GpPolyline2d&   GpPolyline2d::Set (std::vector<GpPoint2d> aPoints) noexcept
     return *this;
 }
 
-}//namespace GPlatform
+}// namespace GPlatform

@@ -20,4 +20,4 @@ public:
     //                                                       const GpAabb2d&        aAabb);
 };
 
-}//namespace GPlatform
+}// namespace GPlatform

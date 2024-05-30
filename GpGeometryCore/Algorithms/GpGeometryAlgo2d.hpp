@@ -281,4 +281,4 @@ constexpr GpPoint2d GpGeometryAlgo2d::SNearestPoint
     return GpPoint2d(xx, yy);
 }
 
-}//namespace GPlatform
+}// namespace GPlatform

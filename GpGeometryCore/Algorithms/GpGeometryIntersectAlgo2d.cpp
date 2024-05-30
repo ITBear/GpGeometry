@@ -17,7 +17,7 @@ namespace GPlatform {
 )
 {
     const std::vector<GpPoint2d>&   srcPoints      = aPolyline.Points();
-    const size_t                    srcPointsCount = srcPoints.size();
+    const size_t                    srcPointsCount = std::size(srcPoints);
 
     THROW_COND_GP
     (
@@ -89,8 +89,8 @@ namespace GPlatform {
                 //Search for next point in trimm
                 auto trimmPointIter = std::find_if
                 (
-                    trimPoints.begin(),
-                    trimPoints.end(),
+                    std::begin(trimPoints),
+                    std::end(trimPoints),
                     [&pointId](const auto& aElement)->bool
                     {
                         const auto&[__ePointId, __intersectPoint, __intersectState] = aElement;
@@ -100,7 +100,7 @@ namespace GPlatform {
                     }
                 );
 
-                if (trimmPointIter != trimPoints.end())
+                if (trimmPointIter != std::end(trimPoints))
                 {
                     trimmedPolygonPoints.emplace_back(std::get<1>(*trimmPointIter));
                     trimPoints.erase(trimmPointIter);
@@ -123,8 +123,8 @@ namespace GPlatform {
                 //Search for next point in trimm
                 auto trimmPointIter = std::find_if
                 (
-                    trimPoints.begin(),
-                    trimPoints.end(),
+                    std::begin(trimPoints),
+                    std::end(trimPoints),
                     [&pointId](const auto& aElement)->bool
                     {
                         const auto&[__ePointId, __intersectPoint, __intersectState] = aElement;
@@ -134,7 +134,7 @@ namespace GPlatform {
                     }
                 );
 
-                if (trimmPointIter != trimPoints.end())
+                if (trimmPointIter != std::end(trimPoints))
                 {
                     trimmedPolygonPoints.emplace_back(std::get<1>(*trimmPointIter));
                     trimPoints.erase(trimmPointIter);
@@ -273,8 +273,8 @@ namespace GPlatform {
         {
             auto newPolygons = STrimByAabbEdge(polygon, aAabb, edge);
 
-            tmpPolygons.reserve(tmpPolygons.size() + newPolygons.size());
-            std::move(newPolygons.begin(), newPolygons.end(), std::back_inserter(tmpPolygons));
+            tmpPolygons.reserve(std::size(tmpPolygons) + std::size(newPolygons));
+            std::move(std::begin(newPolygons), std::end(newPolygons), std::back_inserter(tmpPolygons));
         }
 
         currentPolygons = std::move(tmpPolygons);
@@ -285,4 +285,4 @@ namespace GPlatform {
 }
 */
 
-}//namespace GPlatform
+}// namespace GPlatform

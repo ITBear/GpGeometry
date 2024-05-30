@@ -1,4 +1,4 @@
-#include "GpGeometryCore.hpp"
+#include "GpGeometryCoreLib.hpp"
 
 namespace GPlatform {
 

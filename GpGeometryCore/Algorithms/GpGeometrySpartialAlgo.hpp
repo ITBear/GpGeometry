@@ -91,4 +91,4 @@ std::vector<size_t> GpGeometrySpartialAlgo::SBounds2DToIdxs
     return res;
 }
 
-}//namespace GPlatform
+}// namespace GPlatform

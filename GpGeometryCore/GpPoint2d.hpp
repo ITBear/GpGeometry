@@ -24,7 +24,7 @@ public:
     constexpr                           ~GpPoint2d  (void) noexcept = default;
 #else
                                         ~GpPoint2d  (void) noexcept = default;
-#endif//#if  (__cplusplus >= CPP_VERSION_20)
+#endif// #if  (__cplusplus >= CPP_VERSION_20)
 
     constexpr inline void               Reset       (void) noexcept;
 
@@ -223,4 +223,4 @@ constexpr GpPoint2d&    GpPoint2d::Mul (const double aValue) noexcept
     return *this;
 }
 
-}//namespace GPlatform
+}// namespace GPlatform
