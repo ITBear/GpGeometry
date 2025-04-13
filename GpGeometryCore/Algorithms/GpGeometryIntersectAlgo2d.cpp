@@ -1,4 +1,4 @@
-#include "GpGeometryIntersectAlgo2d.hpp"
+#include <GpGeometry/GpGeometryCore/Algorithms/GpGeometryIntersectAlgo2d.hpp>
 
 //#include <boost/geometry.hpp>
 //#include <boost/geometry/geometries/point_xy.hpp>
@@ -19,7 +19,7 @@ namespace GPlatform {
     const std::vector<GpPoint2d>&   srcPoints      = aPolyline.Points();
     const size_t                    srcPointsCount = std::size(srcPoints);
 
-    THROW_COND_GP
+    VERIFY
     (
         srcPointsCount >= 2,
         "Points count must be >= 2"_sv

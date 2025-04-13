@@ -1,7 +1,6 @@
 #pragma once
 
-#include "../GpLine2d.hpp"
-
+#include <GpGeometry/GpGeometryCore/GpLine2d.hpp>
 #include <GpCore2/GpUtils/Types/Units/SI/GpUnitsSI_Angle.hpp>
 
 namespace GPlatform {
@@ -12,43 +11,43 @@ class GpGeometryAlgo2d
 
 public:
     //
-    constexpr inline static double          SDotProduct             (const GpPoint2d& aPointA,
-                                                                     const GpPoint2d& aPointB) noexcept;
-    constexpr inline static GpPoint2d       SNormalize              (const GpPoint2d& aPoint) noexcept;
-    constexpr inline static GpPoint2d       SLineToNormalizedDir    (const GpLine2d& aLine) noexcept;
+    constexpr inline static double      SDotProduct             (const GpPoint2d& aPointA,
+                                                                 const GpPoint2d& aPointB) noexcept;
+    constexpr inline static GpPoint2d   SNormalize              (const GpPoint2d& aPoint) noexcept;
+    constexpr inline static GpPoint2d   SLineToNormalizedDir    (const GpLine2d& aLine) noexcept;
 
     //Angle
-    inline static angle_rad_t               SAngleFast              (const GpPoint2d& aPointA,
-                                                                     const GpPoint2d& aPointB) noexcept;
-    inline static angle_rad_t               SAngleFastX             (const GpPoint2d& aPoint) noexcept;
-    inline static angle_rad_t               SAngleFastY             (const GpPoint2d& aPoint) noexcept;
+    inline static angle_rad_t           SAngleFast              (const GpPoint2d& aPointA,
+                                                                 const GpPoint2d& aPointB) noexcept;
+    inline static angle_rad_t           SAngleFastX             (const GpPoint2d& aPoint) noexcept;
+    inline static angle_rad_t           SAngleFastY             (const GpPoint2d& aPoint) noexcept;
 
-    inline static angle_rad_t               SAngle                  (const GpLine2d& aLineA,
-                                                                     const GpLine2d& aLineB) noexcept;
-    inline static angle_rad_t               SAngleX                 (const GpLine2d& aLineA) noexcept;
-    inline static angle_rad_t               SAngleY                 (const GpLine2d& aLineA) noexcept;
+    inline static angle_rad_t           SAngle                  (const GpLine2d& aLineA,
+                                                                 const GpLine2d& aLineB) noexcept;
+    inline static angle_rad_t           SAngleX                 (const GpLine2d& aLineA) noexcept;
+    inline static angle_rad_t           SAngleY                 (const GpLine2d& aLineA) noexcept;
 
     //Rotation
-    inline static GpPoint2d                 SRotate                 (const angle_rad_t  aAngle,
-                                                                     const GpPoint2d&   aPoint);
-    inline static GpPoint2d                 SRotate                 (const angle_rad_t  aAngle,
-                                                                     const GpPoint2d&   aAxisPoint,
-                                                                     const GpPoint2d&   aPoint);
+    inline static GpPoint2d             SRotate                 (const angle_rad_t  aAngle,
+                                                                 const GpPoint2d&   aPoint);
+    inline static GpPoint2d             SRotate                 (const angle_rad_t  aAngle,
+                                                                 const GpPoint2d&   aAxisPoint,
+                                                                 const GpPoint2d&   aPoint);
 
     //Distance
-    constexpr inline static double          SLength                 (const GpPoint2d& aPoint) noexcept;
-    constexpr inline static double          SLengthSquare           (const GpPoint2d& aPoint) noexcept;
-    constexpr inline static double          SDistance               (const GpPoint2d& aPointA,
-                                                                     const GpPoint2d& aPointB) noexcept;
-    constexpr inline static double          SDistanceSquare         (const GpPoint2d& aPointA,
-                                                                     const GpPoint2d& aPointB) noexcept;
+    constexpr inline static double      SLength                 (const GpPoint2d& aPoint) noexcept;
+    constexpr inline static double      SLengthSquare           (const GpPoint2d& aPoint) noexcept;
+    constexpr inline static double      SDistance               (const GpPoint2d& aPointA,
+                                                                 const GpPoint2d& aPointB) noexcept;
+    constexpr inline static double      SDistanceSquare         (const GpPoint2d& aPointA,
+                                                                 const GpPoint2d& aPointB) noexcept;
 
     //Search
-    constexpr inline static GpPoint2d       SNearestPoint           (const GpPoint2d&   aPoint,
-                                                                     const GpLine2d&    aLine) noexcept;
-    constexpr inline static GpPoint2d       SNearestPoint           (const GpPoint2d&   aPoint,
-                                                                     const GpPoint2d&   aLinePointA,
-                                                                     const GpPoint2d&   aLinePointB) noexcept;
+    constexpr inline static GpPoint2d   SNearestPoint           (const GpPoint2d&   aPoint,
+                                                                 const GpLine2d&    aLine) noexcept;
+    constexpr inline static GpPoint2d   SNearestPoint           (const GpPoint2d&   aPoint,
+                                                                 const GpPoint2d&   aLinePointA,
+                                                                 const GpPoint2d&   aLinePointB) noexcept;
 };
 
 constexpr double    GpGeometryAlgo2d::SDotProduct

@@ -1,8 +1,7 @@
 #pragma once
 
-//#include "../GpPolyline2d.hpp"
-//#include "../GpAabb2d.hpp"
-//#include "../Utils/GpGeometryTypes.hpp"
+//#include <GpGeometry/GpGeometryCore/GpPolyline2d.hpp>
+//#include <GpGeometry/GpGeometryCore/GpAabb2d.hpp>
 
 namespace GPlatform {
 

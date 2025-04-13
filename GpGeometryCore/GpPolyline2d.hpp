@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GpPoint2d.hpp"
+#include <GpGeometry/GpGeometryCore/GpPoint2d.hpp>
 
 namespace GPlatform {
 

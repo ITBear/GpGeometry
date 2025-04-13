@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Algorithms/GpGeometrySpartialAlgo.hpp"
-#include "Algorithms/GpGeometryAlgo2d.hpp"
-#include "Utils/GpGeometryTypes.hpp"
+#include <GpGeometry/GpGeometryCore/Algorithms/GpGeometrySpartialAlgo.hpp>
+#include <GpGeometry/GpGeometryCore/Algorithms/GpGeometryAlgo2d.hpp>
+#include <GpGeometry/GpGeometryCore/Utils/GpGeometryTypes.hpp>
 
-#include "GpPoint2d.hpp"
-#include "GpLine2d.hpp"
-#include "GpPolyline2d.hpp"
+#include <GpGeometry/GpGeometryCore/GpPoint2d.hpp>
+#include <GpGeometry/GpGeometryCore/GpLine2d.hpp>
+#include <GpGeometry/GpGeometryCore/GpPolyline2d.hpp>
 
 namespace GPlatform {
 

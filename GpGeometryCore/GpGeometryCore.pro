@@ -17,7 +17,7 @@ equals(var_link, "static") {
 
 # ----------- Libraries -----------
 equals(var_os, "windows") {
-	LIBS += -lGpUtils$$TARGET_POSTFIX
+	LIBS += -lGpUtils$$TARGET_POSTFIX$$_VER_MAJ
 }
 
 equals(var_os, "linux") {
@@ -31,7 +31,6 @@ SOURCES += \
 
 HEADERS += \
     Algorithms/GpGeometryAlgo2d.hpp \
-    Algorithms/GpGeometryAlgorithms.hpp \
 	Algorithms/GpGeometryIntersectAlgo2d.hpp \
     Algorithms/GpGeometrySpartialAlgo.hpp \
     GpAabb2d.hpp \
@@ -41,5 +40,4 @@ HEADERS += \
     GpPoint2d.hpp \
     Utils/GpGeometryPrecision.hpp \
 	Utils/GpGeometryTypes.hpp \
-	Utils/GpGeometryUtils.hpp \
 	GpPolyline2d.hpp

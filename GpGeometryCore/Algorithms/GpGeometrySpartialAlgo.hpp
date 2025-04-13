@@ -1,7 +1,6 @@
 #pragma once
 
-#include "../GpGeometryCore_global.hpp"
-
+#include <GpGeometry/GpGeometryCore/GpGeometryCore_global.hpp>
 #include <GpCore2/GpUtils/Macro/GpMacroClass.hpp>
 #include <GpCore2/GpUtils/Types/Numerics/GpNumericOps.hpp>
 
@@ -17,15 +16,15 @@ class GpGeometrySpartialAlgo
 
 public:
     inline static std::optional<std::array<size_t, 2>>
-                                        SCalcIdxsBounds (const double   aFromBegin,
-                                                         const double   aFromEnd,
-                                                         const double   aOfBegin,
-                                                         const double   aOfEnd,
-                                                         const size_t   aResolution) noexcept;
+                                        SCalcIdxsBounds (double aFromBegin,
+                                                         double aFromEnd,
+                                                         double aOfBegin,
+                                                         double aOfEnd,
+                                                         size_t aResolution) noexcept;
 
     inline static std::vector<size_t>   SBounds2DToIdxs (const std::array<size_t, 2>&   aBoundsX,
                                                          const std::array<size_t, 2>&   aBoundsY,
-                                                         const size_t                   aResolution);
+                                                         size_t                         aResolution);
 };
 
 std::optional<std::array<size_t, 2>>    GpGeometrySpartialAlgo::SCalcIdxsBounds
