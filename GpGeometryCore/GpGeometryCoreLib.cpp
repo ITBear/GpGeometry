@@ -1,7 +1,10 @@
 #include <GpGeometry/GpGeometryCore/GpGeometryCoreLib.hpp>
+#include <GpCore2/GpUtils/Other/GpLinkedLibsInfo.hpp>
 
-namespace GPlatform {
+GP_STATIC_INITIALIZER_IMPL(GpGeometryCore)
+GP_LIB_REGISTRATOR(GpGeometryCoreLib)
 
-GP_IMPLEMENT_LIB_REGISTRATOR(GpGeometryCoreLib)
-
-}// namespace GPlatform
+void    GpGeometryCore_StaticInitializer::OnInitialize (void)
+{
+    GpGeometryCoreLib::SRegisterSelf();
+}

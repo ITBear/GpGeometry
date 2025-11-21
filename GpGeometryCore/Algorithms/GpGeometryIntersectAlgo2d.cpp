@@ -6,7 +6,6 @@
 //#include <boost/geometry/geometries/box.hpp>
 
 //#include <list>
-//#include <iostream>
 
 namespace GPlatform {
 
